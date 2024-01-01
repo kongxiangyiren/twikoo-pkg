@@ -13,6 +13,7 @@ program
 
 program.parse(process.argv);
 
+// 创建.env文件
 if (
   process.pkg &&
   !existsSync(join(process.execPath, '..', '.env')) &&
@@ -24,6 +25,20 @@ if (
   );
 }
 
+// 适配iis
+if (
+  process.pkg &&
+  process.platform === 'win32' &&
+  !existsSync(join(process.execPath, '..', './web.config')) &&
+  existsSync(join(__dirname, './web.config'))
+) {
+  writeFileSync(
+    join(process.execPath, '..', './web.config'),
+    readFileSync(join(__dirname, './web.config'), 'utf-8')
+  );
+}
+
+// 获取env
 require('dotenv').config({
   path:
     process.pkg && existsSync(join(process.execPath, '..', '.env'))
@@ -32,5 +47,11 @@ require('dotenv').config({
       ? join(__dirname, '.env')
       : void 0
 });
+
+// 匹配iis
+if (process.env.ASPNETCORE_PORT) {
+  process.env.TWIKOO_PORT = process.env.ASPNETCORE_PORT;
+  process.env.TWIKOO_LOCALHOST_ONLY = null;
+}
 
 require('tkserver');
