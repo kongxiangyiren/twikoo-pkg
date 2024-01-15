@@ -1,6 +1,6 @@
-const { program } = require('commander');
-const { join } = require('path');
-const { existsSync, writeFileSync, readFileSync } = require('fs');
+const { program } = require('commander')
+const { join } = require('path')
+const { existsSync, writeFileSync, readFileSync } = require('fs')
 
 program
   .name(require('./package.json').name)
@@ -9,9 +9,9 @@ program
     `DESCRIPTION:
   Official website: https://twikoo.js.org/`
   )
-  .addHelpCommand(false);
+  .addHelpCommand(false)
 
-program.parse(process.argv);
+program.parse(process.argv)
 
 // 创建.env文件
 if (
@@ -22,7 +22,7 @@ if (
   writeFileSync(
     join(process.execPath, '..', '.env'),
     readFileSync(join(__dirname, '.env'), 'utf-8')
-  );
+  )
 }
 
 // 适配iis
@@ -35,7 +35,7 @@ if (
   writeFileSync(
     join(process.execPath, '..', './web.config'),
     readFileSync(join(__dirname, './web.config'), 'utf-8')
-  );
+  )
 }
 
 // 获取env
@@ -44,14 +44,14 @@ require('dotenv').config({
     process.pkg && existsSync(join(process.execPath, '..', '.env'))
       ? join(process.execPath, '..', '.env')
       : existsSync(join(__dirname, '.env'))
-      ? join(__dirname, '.env')
-      : void 0
-});
+        ? join(__dirname, '.env')
+        : undefined
+})
 
 // 匹配iis
 if (process.env.ASPNETCORE_PORT) {
-  process.env.TWIKOO_PORT = process.env.ASPNETCORE_PORT;
-  process.env.TWIKOO_LOCALHOST_ONLY = null;
+  process.env.TWIKOO_PORT = process.env.ASPNETCORE_PORT
+  process.env.TWIKOO_LOCALHOST_ONLY = null
 }
 
-require('tkserver');
+require('tkserver')
