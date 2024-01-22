@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "commander": "^11.1.0",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.3.2",
     "tkserver": "1.6.30"
   },
   "devDependencies": {
