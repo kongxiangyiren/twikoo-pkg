@@ -17,7 +17,12 @@ writeFileSync('./sea-config.json', JSON.stringify(seaConfig, null, 2));
 
 execSync(`node --experimental-sea-config sea-config.json`);
 
-let runName = process.platform === 'win32' ? 'hello.exe' : 'hello';
+let runName =
+  process.platform === 'win32'
+    ? 'twikoo-win.exe'
+    : process.platform === 'darwin'
+    ? 'twikoo-macos'
+    : 'twikoo-linux';
 
 rmSync(`./${runName}`, {
   recursive: true,

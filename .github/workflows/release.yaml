@@ -1,4 +1,4 @@
-name: 打包可执行文件
+name: 创建发行版
 
 permissions:
   contents: write
@@ -7,7 +7,7 @@ permissions:
 on:
   push:
     tags:
-      - 'v*'
+      - '*.*.*'
     paths-ignore: # 这里表示忽略的文件或目录，不会触发流程
       - 'README.md'
       - 'LICENSE'
@@ -43,7 +43,7 @@ jobs:
 
       - name: upx windows
         if: matrix.os == 'windows-latest'
-        run: upx -9 ./dist/hello.exe
+        run: upx -9 ./dist/twikoo-win.exe
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
