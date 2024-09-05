@@ -6,8 +6,8 @@ permissions:
 
 on:
   push:
-    tags:
-      - '*.*.*'
+    branches:
+      - main
     paths-ignore: # 这里表示忽略的文件或目录，不会触发流程
       - 'README.md'
       - 'LICENSE'
