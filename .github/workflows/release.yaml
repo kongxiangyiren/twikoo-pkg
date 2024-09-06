@@ -59,6 +59,19 @@ jobs:
           compression-level: 9 # 压缩等级 默认 6
           retention-days: 1 # 保留天数
 
+      - name: zip build
+        if: matrix.os == 'ubuntu-latest'
+        run: zip -r twikoo-dist.zip ./build
+
+      - name: Upload Artifacts
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: twikoo-dist
+          path: twikoo-dist.zip
+          compression-level: 9 # 压缩等级 默认 6
+          retention-days: 1 # 保留天数
+
   download:
     needs: upload
     runs-on: ubuntu-latest
