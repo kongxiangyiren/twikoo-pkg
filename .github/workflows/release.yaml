@@ -57,6 +57,7 @@ jobs:
           name: twikoo-${{ matrix.os }}
           path: dist/
           compression-level: 9 # 压缩等级 默认 6
+          retention-days: 1 # 保留天数
 
   download:
     needs: upload
