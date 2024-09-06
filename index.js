@@ -28,7 +28,10 @@ try {
 
     // 拷贝ip2region.db
     if (!existsSync(join(__dirname, './ip2region.db'))) {
-      writeFileSync(join(__dirname, './ip2region.db'), getAsset('ip2region.db', 'utf8'));
+      writeFileSync(
+        join(__dirname, './ip2region.db'),
+        Buffer.from(new Uint8Array(getAsset('ip2region.db')))
+      );
     }
   }
 } catch (error) {}
@@ -41,7 +44,7 @@ require('dotenv').config({
 // 匹配iis
 if (process.env.ASPNETCORE_PORT) {
   process.env.TWIKOO_PORT = process.env.ASPNETCORE_PORT;
-  process.env.TWIKOO_LOCALHOST_ONLY = null;
+  process.env.TWIKOO_LOCALHOST_ONLY = undefined;
 }
 
 require('tkserver');
