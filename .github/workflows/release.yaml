@@ -45,11 +45,11 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: upx -9 ./dist/twikoo-win.exe
 
-      - name: upx macos
-        if: matrix.os == 'macos-13'
-        run: |
-          brew install upx
-          upx -9 ./dist/twikoo-macos
+      # - name: upx macos
+      #   if: matrix.os == 'macos-13'
+      #   run: |
+      #     brew install upx
+      #     upx --force-macos -9 ./dist/twikoo-macos
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
