@@ -1,13 +1,19 @@
 const { execSync } = require('child_process');
-const { rmSync, renameSync, mkdirSync, cpSync, writeFileSync } = require('fs');
+const { rmSync, renameSync, mkdirSync, cpSync, writeFileSync, readFileSync } = require('fs');
 
+writeFileSync(
+  './build/index.js',
+  "const{createRequire}=require('node:module');require=createRequire(__filename);" +
+    readFileSync('./build/index.js', 'utf-8')
+);
 const seaConfig = {
   main: './build/index.js',
   output: 'sea-prep.blob',
   disableExperimentalSEAWarning: true,
   assets: {
     '.env': '.env',
-    'ip2region.db': './build/ip2region.db'
+    'ip2region.db': './build/ip2region.db',
+    'xhr-sync-worker.js': './build/xhr-sync-worker.js'
   }
 };
 

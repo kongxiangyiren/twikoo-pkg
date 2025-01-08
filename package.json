@@ -3,13 +3,13 @@
   "license": "MIT",
   "scripts": {
     "build:exe": "npm run build:ncc && node build.exe.js",
-    "build:ncc": "rimraf ./build && npx @vercel/ncc build index.js -m -o build",
+    "build:ncc": "rimraf ./build && npx @vercel/ncc build index.js -m -o build -a",
     "start": "node index.js"
   },
   "dependencies": {
-    "commander": "^12.1.0",
-    "dotenv": "^16.4.6",
-    "tkserver": "1.6.40"
+    "commander": "^13.0.0",
+    "dotenv": "^16.4.7",
+    "tkserver": "1.6.41"
   },
   "engines": {
     "node": "^20.12.0 || >= 21.7.0"
