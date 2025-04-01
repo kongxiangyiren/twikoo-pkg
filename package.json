@@ -7,9 +7,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "commander": "^13.0.0",
+    "commander": "^13.1.0",
     "dotenv": "^16.4.7",
-    "tkserver": "1.6.41"
+    "tkserver": "1.6.42"
   },
   "engines": {
     "node": "^20.12.0 || >= 21.7.0"
