@@ -33,11 +33,18 @@ try {
         Buffer.from(new Uint8Array(getAsset('ip2region.db')))
       );
     }
+    if (!existsSync(join(__dirname, './xhr-sync-worker.js'))) {
+      writeFileSync(
+        join(__dirname, './xhr-sync-worker.js'),
+        getAsset('xhr-sync-worker.js', 'utf8')
+      );
+    }
   }
 } catch (error) {}
 
 // 获取env
 require('dotenv').config({
+  override: true,
   path: existsSync(join(__dirname, '.env')) ? join(__dirname, '.env') : undefined
 });
 
