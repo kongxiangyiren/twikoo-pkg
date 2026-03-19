@@ -1,5 +1,9 @@
 name: 创建发行版
 
+permissions:
+  contents: write
+  discussions: write
+
 on:
   release:
     types: [published]
