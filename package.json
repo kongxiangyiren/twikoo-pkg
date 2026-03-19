@@ -2,14 +2,14 @@
   "name": "twikoo-pkg",
   "license": "MIT",
   "scripts": {
-    "build:exe": "rimraf ./dist && npm run build:ncc && cp tsdown.config.mjs ./build/tsdown.config.mjs && cp .env ./build/.env && cd build && tsdown && cd .. && cp -r build/dist ./dist && rimraf ./dist/index.cjs",
+    "build:exe": "rimraf ./dist && npm run build:ncc && cp tsdown.config.mjs ./build/tsdown.config.mjs && cd build && tsdown && cd .. && cp -r build/dist ./dist && rimraf ./dist/index.cjs",
     "build:ncc": "rimraf ./build && ncc build index.js -m -o build -a",
     "start": "node index.js"
   },
   "dependencies": {
     "commander": "^14.0.3",
     "dotenv": "^17.3.1",
-    "tkserver": "1.6.45"
+    "tkserver": "1.7.0"
   },
   "engines": {
     "node": "^25.8.0"
