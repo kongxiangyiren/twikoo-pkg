@@ -10,9 +10,9 @@ export default defineConfig({
     enabled: true,
     fileName: 'twikoo',
     targets: [
-      // { platform: 'linux', arch: 'x64', nodeVersion: '25.8.1' },
-      // { platform: 'darwin', arch: 'arm64', nodeVersion: '25.8.1' },
-      // { platform: 'darwin', arch: 'x64', nodeVersion: '25.8.1' },
+      { platform: 'linux', arch: 'x64', nodeVersion: '25.8.1' },
+      { platform: 'darwin', arch: 'arm64', nodeVersion: '25.8.1' },
+      { platform: 'darwin', arch: 'x64', nodeVersion: '25.8.1' },
       { platform: 'win', arch: 'x64', nodeVersion: '25.8.1' }
     ],
     outDir: 'dist',
