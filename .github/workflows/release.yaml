@@ -16,7 +16,7 @@ on:
       - '.npmrc'
 
 jobs:
-  upload:
+  build:
     runs-on: macos-latest
     steps:
       - name: Checkout
