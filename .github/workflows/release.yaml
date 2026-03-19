@@ -1,19 +1,8 @@
 name: 创建发行版
 
-permissions:
-  contents: write
-  discussions: write
-
 on:
-  push:
-    tags:
-      - '*.*.*'
-    paths-ignore: # 这里表示忽略的文件或目录，不会触发流程
-      - 'README.md'
-      - 'LICENSE'
-      - '.gitignore'
-      - '.vscode/**'
-      - '.npmrc'
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -35,7 +24,6 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v2
-        if: github.ref_type == 'tag'
         with:
           files: |
             dist/*
