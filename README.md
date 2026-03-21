@@ -1,5 +1,7 @@
 # twikoo 可执行文件
 
+请去 http://github.com/twikoojs/twikoo/releases/latest 下载
+
 ## 可执行文件下载地址
 
 [latest](https://github.com/kongxiangyiren/twikoo-pkg/releases/latest)
